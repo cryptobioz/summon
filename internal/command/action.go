@@ -93,7 +93,7 @@ func runAction(ac *ActionConfig) error {
 
 	for key, spec := range secrets {
 		wg.Add(1)
-		go func(key string, spec secretsyml.SecretSpec) {
+		func(key string, spec secretsyml.SecretSpec) {
 			var value string
 			if spec.IsVar() {
 				value, err = prov.Call(ac.Provider, spec.Path)
